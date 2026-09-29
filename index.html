@@ -62,6 +62,14 @@ h2{margin:0;font:400 clamp(38px,5vw,64px)/1 'Instrument Serif',serif}
 .star{display:grid;grid-template-columns:1fr 1fr;gap:28px 40px}
 .star h4{margin:0 0 8px;font:500 12px 'JetBrains Mono',monospace;letter-spacing:.1em;color:var(--acc)}
 .star p{margin:0;font-size:16px;color:var(--body)}
+.sites{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.site{display:flex;flex-direction:column;gap:8px;padding:24px;background:var(--surface);border:1px solid var(--line);border-radius:16px;transition:border-color .2s}
+.site:hover{border-color:var(--acc);color:var(--txt)}
+.site .tag{font:400 12px 'JetBrains Mono',monospace;color:var(--mut)}
+.site h3{margin:0;font:400 28px/1.1 'Instrument Serif',serif}
+.site p{margin:0;font-size:15px;color:var(--mut);flex-grow:1}
+.site .chips{margin-top:8px}
+.site .go{margin-top:12px;color:var(--acc);font-weight:500;font-size:15px}
 .skill{display:grid;grid-template-columns:180px 1fr;padding:26px 0;border-top:1px solid var(--line);font-size:19px}
 .skill:last-child{border-bottom:1px solid var(--line)}
 .skill b{font-weight:400;color:var(--mut)}
@@ -74,8 +82,10 @@ h2{margin:0;font:400 clamp(38px,5vw,64px)/1 'Instrument Serif',serif}
 .cta .btn:hover{color:#0f1110;opacity:.85}
 .cta .btn.d:hover{color:var(--txt)}
 footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:40px 0;font:400 13px 'JetBrains Mono',monospace;color:var(--mut)}
+@media(max-width:560px){.sites{grid-template-columns:1fr!important}}
 @media(max-width:900px){
  nav ul li:not(:last-child){display:none}
+ .sites{grid-template-columns:1fr 1fr}
  .stats{grid-template-columns:1fr 1fr}
  .stats div{padding:24px 20px}
  .stats div:nth-child(odd){padding-left:0}
@@ -187,8 +197,18 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;paddin
   </article>
 </section>
 
+<section id="sites">
+  <div class="head"><div class="eyebrow">03 · Landing pages</div><h2>Sites rápidos, no ar e responsivos.</h2></div>
+  <div class="sites">
+    <a class="site" href="https://marcenaria-fawn.vercel.app" target="_blank" rel="noopener"><span class="tag">MARCENARIA</span><h3>Âmbar Marcenaria</h3><p>Móveis planejados de alto padrão.</p><div class="chips"><span>HTML</span><span>Tailwind CSS</span><span>Vercel</span></div><span class="go">Ver site ↗</span></a>
+    <a class="site" href="https://official-page-mu.vercel.app" target="_blank" rel="noopener"><span class="tag">ACADEMIA</span><h3>Oficial Fitness</h3><p>Página de captação para academia.</p><div class="chips"><span>HTML</span><span>Tailwind CSS</span><span>Vercel</span></div><span class="go">Ver site ↗</span></a>
+    <a class="site" href="https://esteticapage.vercel.app" target="_blank" rel="noopener"><span class="tag">ESTÉTICA</span><h3>Clínica Aurora</h3><p>Estética avançada em Natal, RN.</p><div class="chips"><span>HTML</span><span>CSS</span><span>Vercel</span></div><span class="go">Ver site ↗</span></a>
+    <a class="site" href="https://wrrefrigeracao.vercel.app" target="_blank" rel="noopener"><span class="tag">REFRIGERAÇÃO</span><h3>Climatização</h3><p>Instalação e manutenção com atendimento rápido.</p><div class="chips"><span>HTML</span><span>Tailwind CSS</span><span>Vercel</span></div><span class="go">Ver site ↗</span></a>
+  </div>
+</section>
+
 <section id="skills" class="row">
-  <div class="k eyebrow">03 · Skills</div>
+  <div class="k eyebrow">04 · Skills</div>
   <div class="v">
     <div class="skill"><b>Backend</b><div>Python · Django · Django REST Framework · NestJS · PostgreSQL · Prisma · JWT · APIs REST</div></div>
     <div class="skill"><b>Frontend</b><div>JavaScript · TypeScript · React · Next.js · Tailwind CSS</div></div>
@@ -198,7 +218,7 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;paddin
 </section>
 
 <section class="row" style="padding-top:80px">
-  <div class="k eyebrow">04 · Formação</div>
+  <div class="k eyebrow">05 · Formação</div>
   <div class="v edu">
     <div>Técnico em Informática para Web · IFRN <span>· concluído</span></div>
     <div>Análise e Desenvolvimento de Sistemas · IFRN <span>· em andamento</span></div>
