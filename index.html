@@ -5,115 +5,210 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Paulo Maia · Desenvolvedor Full-Stack</title>
 <meta name="description" content="Desenvolvedor Full-Stack (Python/Django, NestJS, React/Next.js) em Natal, RN. APIs, plataformas educacionais e SaaS multi-tenant.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0f1115;--card:#171a21;--txt:#e6e8ec;--mut:#9aa3b2;--acc:#5eead4;--bd:#262b36}
-@media(prefers-color-scheme:light){:root{--bg:#fafafa;--card:#fff;--txt:#14161a;--mut:#5b6472;--acc:#0f766e;--bd:#e3e6eb}}
+:root{--bg:#0f1110;--surface:#171a18;--line:#2a2f2b;--txt:#ecebe3;--body:#c9cbc3;--mut:#a3a89f;--acc:#b7f36a}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-main{max-width:860px;margin:0 auto;padding:0 20px 80px}
-section{padding:48px 0 0}
-h1{font-size:clamp(2rem,5vw,3rem);line-height:1.15;margin:0 0 12px}
-h2{font-size:1.4rem;margin:0 0 20px;color:var(--acc)}
-h3{margin:0 0 4px}
-p{margin:0 0 14px}
-.hero{padding-top:88px}
-.sub{color:var(--mut);font-size:1.15rem;max-width:640px}
-.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
-a.b{padding:10px 18px;border:1px solid var(--acc);border-radius:8px;color:var(--acc);text-decoration:none;font-weight:600}
-a.b.p{background:var(--acc);color:var(--bg)}
-.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:22px;margin-bottom:18px}
-.card dl{margin:12px 0 0}
-.card dt{font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin-top:10px}
-.card dd{margin:2px 0 0}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
-.tags span,.sk span{font-size:.85rem;padding:3px 10px;border:1px solid var(--bd);border-radius:99px;color:var(--mut)}
-.meta{color:var(--mut);font-size:.9rem;margin:0}
-.sk{margin-bottom:16px}.sk b{display:block;margin-bottom:6px}.sk div{display:flex;flex-wrap:wrap;gap:6px}
-.cta{text-align:center}
-footer{text-align:center;color:var(--mut);font-size:.85rem;padding:20px}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--txt);font:400 17px/1.6 'Geist',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--acc)}
+a:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.wrap{max-width:1248px;margin:0 auto;padding:0 24px}
+.serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400}
+.mono{font-family:'JetBrains Mono',monospace}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--acc)}
+nav{display:flex;align-items:center;justify-content:space-between;height:80px;border-bottom:1px solid var(--line)}
+nav .logo{font-family:'JetBrains Mono',monospace;font-size:14px}
+nav .logo span{color:var(--acc)}
+nav ul{display:flex;gap:32px;align-items:center;list-style:none;margin:0;padding:0;font-size:15px}
+nav ul a{color:var(--mut)}
+nav ul a:hover{color:var(--acc)}
+.pill{padding:10px 20px;border:1px solid var(--acc);border-radius:999px;color:var(--acc)!important;font-weight:500}
+.hero{padding:96px 0 80px;display:flex;flex-direction:column;gap:32px;align-items:flex-start}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border:1px solid var(--line);border-radius:999px;font:400 13px 'JetBrains Mono',monospace;color:var(--mut)}
+.badge i{width:8px;height:8px;border-radius:50%;background:var(--acc)}
+h1{margin:0;font-size:clamp(46px,9vw,124px);line-height:1;letter-spacing:-.02em;max-width:1100px}
+h1 em{color:var(--acc)}
+.lead{margin:0;font-size:clamp(18px,2vw,22px);color:var(--mut);max-width:720px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;max-width:100%;overflow-wrap:anywhere;border:1px solid var(--line);border-radius:999px;font-size:16px}
+.btn.p{background:var(--acc);border-color:var(--acc);color:#0f1110;font-weight:600}
+.btn.p:hover{color:#0f1110;filter:brightness(1.08)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats div{padding:32px 28px;border-right:1px solid var(--line)}
+.stats div:first-child{padding-left:0}
+.stats div:last-child{border-right:0}
+.stats b{display:block;font:400 clamp(44px,5vw,64px)/1 'Instrument Serif',serif}
+.stats span{display:block;margin-top:8px;font-size:15px;color:var(--mut)}
+section{padding-top:112px}
+.row{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;row-gap:24px}
+.row>.k{grid-column:span 4}
+.row>.v{grid-column:span 8}
+.quote{margin:0 0 24px;font:400 clamp(28px,3.4vw,44px)/1.2 'Instrument Serif',serif}
+.v p{margin:0 0 20px;color:var(--mut);font-size:19px;line-height:1.65}
+h2{margin:0;font:400 clamp(38px,5vw,64px)/1 'Instrument Serif',serif}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:48px}
+.case{display:grid;grid-template-columns:380px 1fr;gap:32px 64px;padding:40px;background:var(--surface);border:1px solid var(--line);border-radius:20px;margin-bottom:24px}
+.case.hl{border-color:var(--acc)}
+.case .tag{font:400 13px 'JetBrains Mono',monospace;color:var(--mut)}
+.case.hl .tag{color:var(--acc)}
+.case h3{margin:12px 0;font:400 clamp(34px,4vw,44px)/1.05 'Instrument Serif',serif}
+.case .meta{font-size:15px;color:var(--mut)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chips span{padding:5px 12px;border:1px solid var(--line);border-radius:999px;font:400 12px 'JetBrains Mono',monospace;color:var(--mut)}
+.star{display:grid;grid-template-columns:1fr 1fr;gap:28px 40px}
+.star h4{margin:0 0 8px;font:500 12px 'JetBrains Mono',monospace;letter-spacing:.1em;color:var(--acc)}
+.star p{margin:0;font-size:16px;color:var(--body)}
+.skill{display:grid;grid-template-columns:180px 1fr;padding:26px 0;border-top:1px solid var(--line);font-size:19px}
+.skill:last-child{border-bottom:1px solid var(--line)}
+.skill b{font-weight:400;color:var(--mut)}
+.edu div{font-size:19px;margin-bottom:12px}
+.edu span{color:var(--mut)}
+.cta{margin-top:112px;padding:72px 56px;background:var(--acc);color:#0f1110;border-radius:28px}
+.cta h2{max-width:980px;font-size:clamp(38px,6vw,84px);margin-bottom:32px}
+.cta .btn{border-color:#0f1110;color:#0f1110;font-weight:600}
+.cta .btn.d{background:#0f1110;color:var(--txt)}
+.cta .btn:hover{color:#0f1110;opacity:.85}
+.cta .btn.d:hover{color:var(--txt)}
+footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:40px 0;font:400 13px 'JetBrains Mono',monospace;color:var(--mut)}
+@media(max-width:900px){
+ nav ul li:not(:last-child){display:none}
+ .stats{grid-template-columns:1fr 1fr}
+ .stats div{padding:24px 20px}
+ .stats div:nth-child(odd){padding-left:0}
+ .stats div:nth-child(2){border-right:0}
+ .stats div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+ .stats div:nth-child(3){border-right:1px solid var(--line)}
+ .row{display:block}
+ .row>.k{margin-bottom:20px}
+ .case{grid-template-columns:1fr;padding:28px}
+ .star{grid-template-columns:1fr}
+ .skill{grid-template-columns:1fr;gap:6px}
+ .cta{padding:48px 28px}
+ section{padding-top:80px}
+}
 </style>
 </head>
 <body>
-<main>
-<section class="hero">
-  <h1>Desenvolvedor Full-Stack<br>Python/Django + React/Next.js</h1>
-  <p class="sub">Construo APIs e interfaces para sistemas que precisam funcionar de verdade, de plataformas educacionais a SaaS multi-tenant.</p>
+<div class="wrap">
+<nav>
+  <a class="logo" href="#topo">paulo.maia<span>/</span>dev</a>
+  <ul>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#projetos">Projetos</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a class="pill" href="mailto:paulomaiadev@gmail.com">Contato</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="topo">
+  <div class="badge"><i></i>Aberto a oportunidades · Natal, RN</div>
+  <h1 class="serif">Sistemas que <em>funcionam</em> de verdade, do banco à interface.</h1>
+  <p class="lead">Sou Paulo Maia, desenvolvedor full-stack. Construo APIs em Django e NestJS e interfaces em React e Next.js, de plataformas educacionais a SaaS multi-tenant.</p>
   <div class="btns">
-    <a class="b p" href="mailto:paulomaiadev@gmail.com">Falar comigo</a>
-    <a class="b" href="https://www.linkedin.com/in/paulomaia-dev/">LinkedIn</a>
-    <a class="b" href="https://github.com/paulomaiadev">GitHub</a>
+    <a class="btn p" href="mailto:paulomaiadev@gmail.com">Falar comigo →</a>
+    <a class="btn" href="https://github.com/paulomaiadev">GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/paulomaia-dev/">LinkedIn</a>
+  </div>
+</header>
+
+<div class="stats">
+  <div><b>20+</b><span>meses de prática em projetos reais</span></div>
+  <div><b>3</b><span>projetos: educação, sistema de farmácia e SaaS</span></div>
+  <div><b>2</b><span>stacks completas: Django + React e NestJS + Next.js</span></div>
+  <div><b>100%</b><span>do ciclo: modelagem, API, interface e deploy</span></div>
+</div>
+
+<main>
+<section id="sobre" class="row">
+  <div class="k eyebrow">01 · Sobre</div>
+  <div class="v">
+    <p class="quote">Gosto de sistemas em que a arquitetura importa: código tipado, camadas bem separadas e banco modelado com cuidado.</p>
+    <p>Tenho mais de 20 meses de prática em projetos reais: uma plataforma educacional gamificada (MEG), o sistema Farmácia SGH no laboratório NAVI/IFRN e um SaaS financeiro próprio, o Fynora. Entrego APIs REST, evoluo sistemas que já estão no ar, corrijo bugs em produção e faço o deploy do começo ao fim.</p>
+    <p>Procuro uma vaga onde eu cresça junto com um time técnico, de preferência em educação digital, sistemas complexos ou projetos de impacto social. Curso Análise e Desenvolvimento de Sistemas no IFRN.</p>
   </div>
 </section>
 
-<section>
-  <h2>Sobre mim</h2>
-  <p>Sou desenvolvedor full-stack em Natal (RN), com backend em Python/Django e NestJS e frontend em React e Next.js. Gosto de sistemas em que a arquitetura importa: código tipado, camadas bem separadas e banco de dados modelado com cuidado.</p>
-  <p>Tenho mais de 20 meses de prática em projetos reais: uma plataforma educacional gamificada (MEG), uma API de auditoria do SUS no laboratório NAVI/IFRN e um SaaS financeiro próprio, o Fynora. Nesses projetos entrego APIs REST, evoluo sistemas que já estão no ar, corrijo bugs em produção e faço deploy do começo ao fim.</p>
-  <p>Hoje procuro uma vaga onde eu possa crescer junto com um time técnico, de preferência em educação digital, sistemas complexos ou projetos de impacto social. Estou cursando Análise e Desenvolvimento de Sistemas no IFRN e me sinto à vontade com Clean Architecture, multi-tenancy e boas práticas de Git.</p>
-</section>
+<section id="projetos">
+  <div class="head"><div class="eyebrow">02 · Projetos</div><h2>Três contextos, um padrão de entrega.</h2></div>
 
-<section>
-  <h2>Projetos</h2>
-
-  <article class="card">
-    <h3>Fiscaliza SUS</h3>
-    <p class="meta">Laboratório NAVI / IFRN · Bolsista de pesquisa · 5+ meses · 5h/semana</p>
-    <dl>
-      <dt>Situação</dt><dd>O SUS precisa de ferramentas para auditar e fiscalizar dados de saúde. O NAVI desenvolve um sistema com inteligência computacional para isso.</dd>
-      <dt>Tarefa</dt><dd>Parte do backend e manutenção do sistema em uso.</dd>
-      <dt>Ação</dt><dd>Endpoints REST com Django Rest Framework, integração com PostgreSQL, testes automatizados e fluxo de revisão de código com Git.</dd>
-      <dt>Resultado</dt><dd>Entrega contínua em um sistema real de interesse público.</dd>
-    </dl>
-    <div class="tags"><span>Python</span><span>Django</span><span>DRF</span><span>PostgreSQL</span><span>Git</span></div>
+  <article class="case">
+    <div>
+      <div class="tag">CASO 01 · NAVI / IFRN</div>
+      <h3>Farmácia SGH</h3>
+      <div class="meta">Bolsista de pesquisa · 5+ meses · 5h/semana</div>
+      <div class="chips"><span>Python</span><span>Django REST</span><span>PostgreSQL</span><span>Git</span></div>
+    </div>
+    <div class="star">
+      <div><h4>SITUAÇÃO</h4><p>O NAVI desenvolve o Farmácia SGH, um sistema que usa metodologias de inteligência computacional.</p></div>
+      <div><h4>TAREFA</h4><p>Parte do backend e manutenção do sistema em uso.</p></div>
+      <div><h4>AÇÃO</h4><p>Endpoints REST com Django Rest Framework, integração com PostgreSQL, testes automatizados e revisão de código com Git.</p></div>
+      <div><h4>RESULTADO</h4><p>Entrega contínua em um sistema real, dentro de um laboratório de pesquisa.</p></div>
+    </div>
   </article>
 
-  <article class="card">
-    <h3>MEG · Plataforma educacional gamificada</h3>
-    <p class="meta">Desenvolvedor Full-Stack · 2023–2024 · 12+ meses</p>
-    <dl>
-      <dt>Situação</dt><dd>Plataforma de ensino digital que usa gamificação para aumentar o engajamento dos alunos.</dd>
-      <dt>Tarefa</dt><dd>Atuar como full-stack: telas em React e backend em Django.</dd>
-      <dt>Ação</dt><dd>Componentes e fluxos no frontend, regras de negócio e APIs no backend, otimização de queries e manutenção em produção (novas funcionalidades, refatoração e correção de bugs).</dd>
-      <dt>Resultado</dt><dd>Conhecimento prático de UX e da arquitetura de ambientes virtuais de aprendizagem.</dd>
-    </dl>
-    <div class="tags"><span>Python</span><span>Django</span><span>JavaScript</span><span>React</span><span>SQL</span></div>
+  <article class="case">
+    <div>
+      <div class="tag">CASO 02 · EDUCAÇÃO</div>
+      <h3>MEG, plataforma gamificada</h3>
+      <div class="meta">Desenvolvedor Full-Stack · 2023–2024 · 12+ meses</div>
+      <div class="chips"><span>Python</span><span>Django</span><span>React</span><span>SQL</span></div>
+    </div>
+    <div class="star">
+      <div><h4>SITUAÇÃO</h4><p>Plataforma de ensino digital que usa gamificação para aumentar o engajamento dos alunos.</p></div>
+      <div><h4>TAREFA</h4><p>Atuar como full-stack: telas em React e backend em Django.</p></div>
+      <div><h4>AÇÃO</h4><p>Componentes e fluxos no frontend, regras de negócio e APIs no backend, otimização de queries e manutenção em produção.</p></div>
+      <div><h4>RESULTADO</h4><p>Domínio prático de UX e da arquitetura de ambientes virtuais de aprendizagem.</p></div>
+    </div>
   </article>
 
-  <article class="card">
-    <h3>Fynora · SaaS de gestão financeira para MEIs</h3>
-    <p class="meta">Projeto próprio · MVP no ar, em desenvolvimento contínuo</p>
-    <dl>
-      <dt>Situação</dt><dd>Microempreendedores costumam controlar as finanças em planilhas ou de cabeça, sem visão clara de receita, despesa e resultado.</dd>
-      <dt>Tarefa</dt><dd>Projetar e construir sozinho um SaaS de ponta a ponta, do modelo de dados ao deploy.</dd>
-      <dt>Ação</dt><dd>Frontend em Next.js + TypeScript + Tailwind. Backend em NestJS modular com Clean Architecture, PostgreSQL com Prisma, JWT e isolamento multi-tenant. Deploy em Vercel e Render.</dd>
-      <dt>Resultado</dt><dd>MVP funcional com controle de receitas/despesas e dashboard financeiro, sobre uma base tipada e escalável.</dd>
-    </dl>
-    <div class="tags"><span>Next.js</span><span>TypeScript</span><span>NestJS</span><span>PostgreSQL</span><span>Prisma</span><span>Docker</span><span>Vercel</span><span>Render</span></div>
+  <article class="case hl">
+    <div>
+      <div class="tag">CASO 03 · PROJETO PRÓPRIO · MVP NO AR</div>
+      <h3>Fynora, SaaS para MEIs</h3>
+      <div class="meta">Produto construído de ponta a ponta, em desenvolvimento contínuo</div>
+      <div class="chips"><span>Next.js</span><span>TypeScript</span><span>NestJS</span><span>Prisma</span><span>PostgreSQL</span><span>Docker</span></div>
+    </div>
+    <div class="star">
+      <div><h4>SITUAÇÃO</h4><p>Microempreendedores controlam as finanças em planilhas ou de cabeça, sem visão clara de receita, despesa e resultado.</p></div>
+      <div><h4>TAREFA</h4><p>Projetar e construir sozinho um SaaS, do modelo de dados ao deploy.</p></div>
+      <div><h4>AÇÃO</h4><p>Backend NestJS modular com Clean Architecture, JWT e isolamento multi-tenant. Frontend Next.js com Tailwind. Deploy em Vercel e Render.</p></div>
+      <div><h4>RESULTADO</h4><p>MVP com controle de receitas e despesas e dashboard financeiro, sobre uma base tipada e escalável.</p></div>
+    </div>
   </article>
 </section>
 
-<section>
-  <h2>Hard skills</h2>
-  <div class="sk"><b>Backend</b><div><span>Python</span><span>Django</span><span>Django Rest Framework</span><span>NestJS</span><span>PostgreSQL</span><span>Prisma</span><span>JWT</span><span>APIs REST</span></div></div>
-  <div class="sk"><b>Frontend</b><div><span>JavaScript</span><span>TypeScript</span><span>React</span><span>Next.js</span><span>Tailwind CSS</span></div></div>
-  <div class="sk"><b>DevOps e ferramentas</b><div><span>Git/GitHub</span><span>Docker</span><span>Vercel</span><span>Render</span></div></div>
-  <div class="sk"><b>Práticas</b><div><span>Clean Architecture</span><span>Multi-tenancy</span><span>Testes automatizados</span><span>Modelagem relacional</span></div></div>
-</section>
-
-<section>
-  <h2>Formação</h2>
-  <p>Técnico em Informática para Web (IFRN), concluído.<br>Análise e Desenvolvimento de Sistemas (IFRN), em andamento.</p>
-</section>
-
-<section class="cta">
-  <h2>Vamos conversar</h2>
-  <p>Tem uma vaga ou projeto de full-stack, principalmente em educação ou sistemas de impacto?</p>
-  <div class="btns" style="justify-content:center">
-    <a class="b p" href="mailto:paulomaiadev@gmail.com">paulomaiadev@gmail.com</a>
-    <a class="b" href="https://www.linkedin.com/in/paulomaia-dev/">LinkedIn</a>
+<section id="skills" class="row">
+  <div class="k eyebrow">03 · Skills</div>
+  <div class="v">
+    <div class="skill"><b>Backend</b><div>Python · Django · Django REST Framework · NestJS · PostgreSQL · Prisma · JWT · APIs REST</div></div>
+    <div class="skill"><b>Frontend</b><div>JavaScript · TypeScript · React · Next.js · Tailwind CSS</div></div>
+    <div class="skill"><b>DevOps</b><div>Git e GitHub · Docker · Vercel · Render</div></div>
+    <div class="skill"><b>Práticas</b><div>Clean Architecture · Multi-tenancy · Testes automatizados · Modelagem relacional</div></div>
   </div>
 </section>
+
+<section class="row" style="padding-top:80px">
+  <div class="k eyebrow">04 · Formação</div>
+  <div class="v edu">
+    <div>Técnico em Informática para Web · IFRN <span>· concluído</span></div>
+    <div>Análise e Desenvolvimento de Sistemas · IFRN <span>· em andamento</span></div>
+  </div>
+</section>
+
+<div class="cta">
+  <h2>Tem uma vaga em educação ou sistemas de impacto? Vamos conversar.</h2>
+  <div class="btns">
+    <a class="btn d" href="mailto:paulomaiadev@gmail.com">paulomaiadev@gmail.com</a>
+    <a class="btn" href="https://www.linkedin.com/in/paulomaia-dev/">LinkedIn</a>
+  </div>
+</div>
 </main>
-<footer>© Paulo Maia · Natal, RN</footer>
+
+<footer><span>© Paulo Maia · Natal, RN</span><span>Django · NestJS · React · Next.js</span></footer>
+</div>
 </body>
 </html>
